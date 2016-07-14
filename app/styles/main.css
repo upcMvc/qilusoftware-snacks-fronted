@@ -22,6 +22,7 @@ body {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 }
+
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -46,6 +47,7 @@ body {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
+
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
@@ -55,6 +57,7 @@ body {
 .marketing {
   margin: 40px 0;
 }
+
 .marketing p + h4 {
   margin-top: 28px;
 }
@@ -72,15 +75,18 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
+
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
   }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
   }
 }
+
 /*搜索框*/
 
 /*主页商店栏*/
@@ -106,6 +112,7 @@ body {
   -o-transform: scale(1, 1);
   transform: scale(1, 1);
 }
+
 .showSection:hover {
   box-shadow: 1px 1px 50px gainsboro;
   -webkit-transform: translate(0, 0);
@@ -119,6 +126,30 @@ body {
   -o-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
 }
+
+.hover :hover {
+  -webkit-transform: rotate(1turn);
+  transform: rotate(1turn);
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+/*personshop*/
+.personshop-shadow {
+  width: 35%;
+  box-shadow: 0.1px 0.1px 20px gainsboro;
+  height: 100px;
+  margin-bottom: 20px;
+  margin-left: 5%;
+  margin-right: 10%;
+  background-color: snow;
+  border-radius: 5px;
+  float: left;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+
 
 
 
