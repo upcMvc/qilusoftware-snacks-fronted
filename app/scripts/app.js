@@ -29,10 +29,20 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/connect', {
+        templateUrl: 'views/connect.html',
+        controller: 'ConnectCtrl',
+        controllerAs: 'connect'
+      })
       .when('/PersonShop', {
         templateUrl: 'views/personshop.html',
         controller: 'PersonshopCtrl',
         controllerAs: 'PersonShop'
+      })
+      .when('/wantopen', {
+        templateUrl: 'views/wantopen.html',
+        controller: 'WantopenCtrl',
+        controllerAs: 'wantopen'
       })
       .otherwise({
         redirectTo: '/'

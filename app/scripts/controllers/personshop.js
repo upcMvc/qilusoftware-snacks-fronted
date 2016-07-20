@@ -15,14 +15,13 @@ angular.module('frontedApp')
       'Karma'
     ];
   })
-  .controller('ShopMaster',function($scope){
+  .controller('ShopMaster',function($scope,$http){
     $scope.shop={
       'id':'1',
       'title':'麦琪的礼物',
       'master':'master1',
       'imgsrc':'images/touxiang1.jpg',
       'telephone':'123456',
-
     }
   })
   .controller('GoodListCtrl',function($scope){
@@ -37,13 +36,22 @@ angular.module('frontedApp')
     },
     {
        'id':'1',
-       'name':'拉条',
+       'name':'辣条',
        'price':'2',
        'describe':'好吃',
        'imgsrc':'images/touxiang1.jpg',
        'quantity':'0',
        'total':'0'
-    }];
+    },
+      {
+        'id':'2',
+        'name':'辣条',
+        'price':'3',
+        'describe':'好吃',
+        'imgsrc':'images/touxiang1.jpg',
+        'quantity':'0',
+        'total':'0'
+      }];
     $scope.minus = function(index) {
       $scope.goods[index].quantity--;
       if($scope.goods[index].quantity<0){
@@ -56,7 +64,16 @@ angular.module('frontedApp')
       $scope.goods[index].quantity++;
       $scope.goods[index].total=$scope.goods[index].price*$scope.goods[index].quantity;
     }
+    //发数据
+    $scope.put=function ($http,index){
+      $http.post("",$scope.goods[index]).success(function(data){
+        console.log(data);
+      }).error(function(){
+        console.log("error");
+      });
+    }
   });
+
 
 
 

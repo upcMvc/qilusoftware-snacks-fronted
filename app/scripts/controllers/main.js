@@ -16,9 +16,9 @@ angular.module('frontedApp')
     ];
   })
   .controller('ShopListCtrl',function($scope,$http){
-      $http.get("").success(function(data){
-        $scope.shops=data;
-      });
+      //$http.get("").success(function(data){
+      //  $scope.shops=data;
+      //});
       $scope.shops=[
         {
           'id':'1',

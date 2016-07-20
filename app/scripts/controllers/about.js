@@ -18,26 +18,26 @@ angular.module('frontedApp')
 .controller('firstController',
   function($scope) {
     $scope.Product = [{
-      id: 1000,
-      name: "iPhone 6 Plus",
+      id: 1,
+      name: "零食1",
       quantity: 1,
-      price: 6888
+      price: 1
     }, {
-      id: 1001,
-      name: "iPhone 6",
+      id: 2,
+      name: "零食2",
       quantity: 1,
-      price: 5288
+      price: 8
 
     }, {
-      id: 1002,
-      name: "iPhone 5s",
-      quantity: 1,
-      price: 4188
+      id: 3,
+      name: "零食3",
+      quantity: 3,
+      price: 4
     }, {
-      id: 1003,
-      name: "iPhone 5c",
+      id: 4,
+      name: "零食4",
       quantity: 1,
-      price: 3288
+      price: 3
     }];
 
     $scope.totalPrice = function() {

@@ -1,0 +1,45 @@
+<div style="border: darkgray solid 1px;padding:20%;border-radius: 5px">
+  <form class="form-horizontal" name="form" ng-controller="ValueCtrl">
+    <div class="form-group">
+      <label for="id" class="col-sm-3 control-label" >ID:</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="id" placeholder="ID" ng-model="id">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="title" class="col-sm-3 control-label" >店名：</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="title" placeholder="店名" ng-model="title">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone" class="col-sm-3 control-label" >手机号：</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="phone" placeholder="手机" ng-model="phone">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="col-sm-3 control-label" >Email:</label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" id="email" placeholder="Email" ng-model="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="qq" class="col-sm-3 control-label" >QQ:</label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" id="qq" placeholder="QQ" ng-model="qq">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="detail" class="col-sm-3 control-label" >商铺介绍：</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="detail" placeholder="商铺介绍" ng-model="detail">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <p class="text-center"><button type="submit" class="btn btn-default" ng-click="signin($event)">Sign in</button></p>
+      </div>
+    </div>
+  </form>
+</div>

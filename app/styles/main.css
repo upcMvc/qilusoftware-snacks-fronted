@@ -138,8 +138,8 @@ body {
 .personshop-shadow {
   width: 35%;
   box-shadow: 0.1px 0.1px 20px gainsboro;
-  height: 100px;
-  margin-bottom: 20px;
+  height: 220px;
+  margin-bottom: 50px;
   margin-left: 5%;
   margin-right: 10%;
   background-color: snow;
@@ -147,7 +147,34 @@ body {
   float: left;
   word-wrap: break-word;
   word-break: normal;
+  border-radius: 5px;
 }
+.personshop-shadow:hover .personshop_hover{
+  position: relative;
+  z-index:1;
+  top: -40%;
+}
+.personshop-shadow:hover img{
+  opacity: 0.5;
+}
+.personshop-shadow:hover .form_hover{
+  display: block;
+}
+.personshop_hover{
+  border-radius: 5px;
+  background-color: white;
+  top:-10px;
+  transition:top 1s;
+  -moz-transition:top 1s;
+  -webkit-transition:top 1s;
+  -o-transition:top 1s;
+  margin-top: -15%;
+}
+.form_hover{
+  display: none;
+}
+
+
 
 
 
