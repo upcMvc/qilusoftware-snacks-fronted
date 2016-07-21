@@ -9,7 +9,7 @@
   </div>
   <div class="col-xs-8" ng-controller="GoodListCtrl">
     <div class="personshop-shadow" ng-repeat="good in goods" align="center" >
-      <img ng-src="{{good.imgsrc}}" alt="" width="100%">
+      <img ng-src="{{good.imgsrc}}" alt="" width="100%" >
       <div class="personshop_hover">
         <h2>{{good.name}}</h2>
         <p>单价：{{good.price}}元</p>
@@ -26,11 +26,37 @@
             </div><br>
             <p>总价：{{good.total}}元</p>
           </div>
-          <button type="submit" class="btn btn-primary" ng-click="put($index)">加入购物车</button>
+          <button type="submit" class="btn btn-primary" ng-click="put($index,$event)">加入购物车</button>
         </form>
     </div>
     </div>
   </div>
+</div>
+<div class="a11" style="height: 50px;width: 50px;background-color: #00A000">
 
 </div>
+<div class="m-sidebar">
+  <div class="cart">
+    <i id="end"></i>
+    <span>购物车</span>
+  </div>
+</div>
+<!--<script>-->
+  <!--$('.click').on('click', addCart);-->
+  <!--function addCart(event) {-->
+    <!--var offset = $('#end').offset(), flyer = $('<img class="u-flyer" src="images/touxiang1.jpg"/>');-->
+    <!--flyer.fly({-->
+      <!--start: {-->
+        <!--left: event.pageX,//当前鼠标的坐标-->
+        <!--top: event.pageY-100-->
+      <!--},-->
+      <!--end: {-->
+        <!--left: offset.left,-->
+        <!--top: offset.top,-->
+        <!--width: 20,-->
+        <!--height: 20-->
+      <!--}-->
+    <!--});-->
+  <!--}-->
+<!--</script>-->
 

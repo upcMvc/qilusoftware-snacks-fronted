@@ -17,14 +17,14 @@ angular.module('frontedApp')
   })
   .controller('ValueCtrl',function($scope,$http){
     $scope.signin= function () {
-      var log={
+      var log= $.param({
         'id': $scope.id,
         'title':$scope.title,
         'phone':$scope.phone,
         'email':$scope.email,
         'qq':$scope.qq,
         'detail':$scope.detail
-      };
+      });
       $http.post("",log).success(function(){
         alert("提交成功");
         //然后把他引到商铺页面

@@ -15,8 +15,7 @@ angular.module('frontedApp')
       'Karma'
     ];
   })
-.controller('firstController',
-  function($scope) {
+.controller('firstController', function($scope) {
     $scope.Product = [{
       id: 1,
       name: "零食1",
@@ -46,7 +45,7 @@ angular.module('frontedApp')
         total += item.quantity * item.price;
       });
       return total;
-    }
+    };
 
     $scope.totalQuantity = function() {
       var total = 0;
@@ -54,18 +53,18 @@ angular.module('frontedApp')
         total += parseInt(item.quantity);
       });
       return total;
-    }
+    };
 
     $scope.remove = function(index) {
       $scope.Product.splice(index, 1);
-    }
+    };
 
     $scope.removeall = function() {
       var index;
       for (index = $scope.Product.length - 1; index >= 0; index--) {
         $scope.remove(index);
       }
-    }
+    };
 
     $scope.reduce = function(index) {
       if ($scope.Product[index].quantity != 1) {
@@ -78,11 +77,11 @@ angular.module('frontedApp')
           $scope.Product[index].quantity = 1;
         }
       }
-    }
+    };
 
     $scope.add = function(index) {
       $scope.Product[index].quantity++;
-    }
+    };
 
     $scope.$watch('Product', function(newValue, oldValue) {
       angular.forEach(newValue, function(item, key) {

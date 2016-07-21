@@ -149,29 +149,88 @@ body {
   word-break: normal;
   border-radius: 5px;
 }
-.personshop-shadow:hover .personshop_hover{
+
+.personshop-shadow:hover .personshop_hover {
   position: relative;
-  z-index:1;
+  z-index: 1;
   top: -40%;
 }
-.personshop-shadow:hover img{
+
+.personshop-shadow:hover img {
   opacity: 0.5;
 }
-.personshop-shadow:hover .form_hover{
+
+.personshop-shadow:hover .form_hover {
   display: block;
 }
-.personshop_hover{
+
+.personshop_hover {
   border-radius: 5px;
   background-color: white;
-  top:-10px;
-  transition:top 1s;
-  -moz-transition:top 1s;
-  -webkit-transition:top 1s;
-  -o-transition:top 1s;
+  top: -10px;
+  transition: top 1s;
+  -moz-transition: top 1s;
+  -webkit-transition: top 1s;
+  -o-transition: top 1s;
   margin-top: -15%;
 }
-.form_hover{
+
+.form_hover {
   display: none;
+}
+
+/***************************************************************test*/
+.m-tip {
+  border: 4px solid #ccc;
+  color: #999;
+  width: 1000px;
+  height: 300px;
+  margin: 200px auto;
+  text-align: center;
+  line-height: 30px;
+  padding-top: 100px;
+  cursor: pointer;
+}
+
+.m-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #000;
+  z-index: 2000;
+  width: 35px;
+  height: 100%;
+  font-size: 12px;
+  color: #fff;
+}
+
+.m-sidebar .cart {
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  padding: 200px 0 0 0px;
+  top: 100px;
+}
+
+.m-sidebar .cart span {
+  display: block;
+  width: 20px;
+  margin: 0 auto;
+}
+
+.m-sidebar .cart i {
+  width: 35px;
+  height: 35px;
+  display: block;
+}
+
+.u-flyer {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  position: fixed;
+  z-index: 9999;
 }
 
 
