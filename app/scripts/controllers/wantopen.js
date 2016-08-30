@@ -25,6 +25,7 @@ angular.module('frontedApp')
         'qq':$scope.qq,
         'detail':$scope.detail
       });
+      console.log(log);
       $http.post("",log).success(function(){
         alert("提交成功");
         //然后把他引到商铺页面

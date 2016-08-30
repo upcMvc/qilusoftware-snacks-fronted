@@ -66,7 +66,8 @@ angular.module('frontedApp')
     };
     //发数据
     $scope.put=function ($http,event,index) {
-      var offset = $('#end').offset(), flyer = $('<img class="u-flyer" src="{{$scope.goods[index].imgsrc}}"/>');
+      var offset = $('#end').offset(),
+          flyer = $('<img class="u-flyer" src="{{$scope.goods[index].imgsrc}}"/>');
       flyer.fly({
         start: {
           left: event.clientX,//当前鼠标的坐标
@@ -74,34 +75,19 @@ angular.module('frontedApp')
         },
         end: {
           left: offset.left+8,
-          top: 300,
+          top: offset.top,
           width: 20,
           height: 20
         }
       });
-      $http.post("", $scope.goods[index]).success(function (data) {
-        console.log(data);
-      }).error(function () {
-        console.log("error");
-      });
+      console.log($scope.goods[index]);
+      //$http.post("", $scope.goods[index]).success(function (data) {
+      //  console.log(data);
+      //}).error(function () {
+      //  console.log("error");
+      //});
     }
   });
-$('.click').on('click', addCart);
-function addCart(event) {
-  var offset = $('#end').offset(), flyer = $('<img class="u-flyer" src="images/touxiang1.jpg"/>');
-  flyer.fly({
-    start: {
-      left: event.pageX,//当前鼠标的坐标
-      top: event.pageY-100
-    },
-    end: {
-      left: offset.left,
-      top: offset.top,
-      width: 20,
-      height: 20
-    }
-  });
-}
 
 
 

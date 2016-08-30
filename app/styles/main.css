@@ -173,6 +173,7 @@ body {
   -webkit-transition: top 1s;
   -o-transition: top 1s;
   margin-top: -15%;
+  padding: 5px 0;
 }
 
 .form_hover {
@@ -229,7 +230,6 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50px;
-  position: fixed;
   z-index: 9999;
 }
 
