@@ -69,12 +69,12 @@ angular.module('frontedApp')
       var offset = $('#end').offset(), flyer = $('<img class="u-flyer" src="{{$scope.goods[index].imgsrc}}"/>');
       flyer.fly({
         start: {
-          left: event.pageX,//当前鼠标的坐标
-          top: event.pageY-250
+          left: event.clientX,//当前鼠标的坐标
+          top: event.clientY
         },
         end: {
-          left: offset.left,
-          top: offset.top,
+          left: offset.left+8,
+          top: 300,
           width: 20,
           height: 20
         }
@@ -86,7 +86,22 @@ angular.module('frontedApp')
       });
     }
   });
-
+$('.click').on('click', addCart);
+function addCart(event) {
+  var offset = $('#end').offset(), flyer = $('<img class="u-flyer" src="images/touxiang1.jpg"/>');
+  flyer.fly({
+    start: {
+      left: event.pageX,//当前鼠标的坐标
+      top: event.pageY-100
+    },
+    end: {
+      left: offset.left,
+      top: offset.top,
+      width: 20,
+      height: 20
+    }
+  });
+}
 
 
 
