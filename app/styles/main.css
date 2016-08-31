@@ -231,6 +231,7 @@ body {
   height: 50px;
   border-radius: 50px;
   z-index: 9999;
+  /*position: inherit;*/
 }
 
 
