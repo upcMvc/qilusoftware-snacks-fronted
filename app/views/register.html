@@ -1,0 +1,40 @@
+<div style="border: darkgray solid 1px;padding:20%;border-radius: 5px">
+  <form class="form-horizontal" name="form" ng-controller="ValueCtrl">
+    <div class="form-group">
+      <label for="id" class="col-sm-3 control-label" >用户名:</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="id" placeholder="" ng-model="id">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="col-sm-3 control-label" >Email:</label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" id="email" placeholder="" ng-model="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone" class="col-sm-3 control-label" >电话:</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="phone" placeholder="" ng-model="phone">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="col-sm-3 control-label" >密码：</label>
+      <div class="col-sm-9">
+        <input type="password" class="form-control" id="password" placeholder="" ng-model="password">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="passwordagain" class="col-sm-3 control-label" >确认密码：</label>
+      <div class="col-sm-9">
+        <input type="password" class="form-control" id="passwordagain" placeholder="" ng-model="passwordagain">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <p class="text-center" ng-hide="password!=passwordagain"><button type="submit" class="btn btn-default" >Sign in</button></p>
+      </div>
+    </div>
+  </form>
+</div>
+
