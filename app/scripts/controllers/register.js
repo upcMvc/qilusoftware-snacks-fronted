@@ -8,10 +8,11 @@
  * Controller of the frontedApp
  */
 angular.module('frontedApp')
-  .controller('RegisterCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('RegisterCtrl', function ($scope,$http) {
+    $scope.submit = function () {
+      $http("").success(function () {
+        window.location = "http:";
+      }).error(alert("失败！"));
+    }
+
   });

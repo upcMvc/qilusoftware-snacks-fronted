@@ -18,8 +18,7 @@ angular.module('frontedApp')
   .controller('ValueCtrl',function($scope,$http){
     $scope.signin= function () {
       $http.get("http://localhost:8080/shop/create?title="+$scope.title+"&&phone="+$scope.phone+"&&email="+$scope.email+"&&qq="+$scope.qq+"&&detail="+$scope.detail).success(function(){
-        alert("提交成功");
-
+        window.location="http:";
       });
     };
 });

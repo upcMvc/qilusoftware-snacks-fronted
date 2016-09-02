@@ -15,7 +15,10 @@ angular.module('frontedApp')
       'Karma'
     ];
   })
-.controller('firstController', function($scope) {
+.controller('firstController', function($scope,$http) {
+    //$http.get().then(function(data){
+    //  $scope.Product = data;
+    //});
     $scope.Product = [{
       id: 1,
       name: "零食1",
