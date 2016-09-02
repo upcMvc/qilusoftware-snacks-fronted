@@ -23,23 +23,27 @@ angular.module('frontedApp')
       id: 1,
       name: "零食1",
       quantity: 1,
-      price: 1
+      price: 1,
+      number:1
     }, {
       id: 2,
       name: "零食2",
       quantity: 1,
-      price: 8
+      price: 8,
+      number:1
 
     }, {
       id: 3,
       name: "零食3",
       quantity: 3,
-      price: 4
+      price: 4,
+      number:1
     }, {
       id: 4,
       name: "零食4",
       quantity: 1,
-      price: 3
+      price: 3,
+      number:1
     }];
 
     $scope.totalPrice = function() {

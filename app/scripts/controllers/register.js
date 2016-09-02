@@ -10,9 +10,14 @@
 angular.module('frontedApp')
   .controller('RegisterCtrl', function ($scope,$http) {
     $scope.submit = function () {
-      $http("").success(function () {
-        window.location = "http:";
-      }).error(alert("失败！"));
+      $http.get("http://localhost:8080/user/create?name="+$scope.id+"&mail=" + $scope.email+ "&password="+$scope.password + "&phone=" + $scope.phone).then(function (data) {
+        if(data.data.result=="注册成功"){
+          window.location="http://.....:"+data.data.id;
+        }
+        else {
+          alert("用户名或邮箱已存在");
+        }
+      });
     }
 
   });
