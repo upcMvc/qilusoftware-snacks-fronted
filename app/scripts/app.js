@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,$httpProvider) {
+    $httpProvider.defaults.withCredentials = true;
     $routeProvider
       .when('/main', {
         templateUrl: 'views/main.html',
@@ -29,12 +30,7 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/connect', {
-        templateUrl: 'views/connect.html',
-        controller: 'ConnectCtrl',
-        controllerAs: 'connect'
-      })
-      .when('/PersonShop', {
+      .when('/main/:id', {
         templateUrl: 'views/personshop.html',
         controller: 'PersonshopCtrl',
         controllerAs: 'PersonShop'
@@ -43,11 +39,6 @@ angular
         templateUrl: 'views/wantopen.html',
         controller: 'WantopenCtrl',
         controllerAs: 'wantopen'
-      })
-      .when('/test', {
-        templateUrl: 'views/test.html',
-        controller: 'TestCtrl',
-        controllerAs: 'test'
       })
       .when('/', {
         templateUrl: 'views/login.html',

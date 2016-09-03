@@ -15,8 +15,8 @@ angular.module('frontedApp')
       'Karma'
     ];
   })
-.controller('firstController', function($scope,$http) {
-    //$http.get().then(function(data){
+.controller('firstController', function($scope,$http,$routeParams) {
+    //$http.get(""+$routeParams.id).then(function(data){
     //  $scope.Product = data;
     //});
     $scope.Product = [{

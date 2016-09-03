@@ -143,7 +143,7 @@ angular.module('frontedApp')
       'Karma'
     ];
   })
-  .controller('ShopMaster',function($scope,$http){
+  .controller('ShopMaster',function($scope,$http,$routeParams){
     $scope.shop={
       'id':'1',
       'title':'麦琪的礼物',
@@ -151,8 +151,11 @@ angular.module('frontedApp')
       'imgsrc':'images/touxiang1.jpg',
       'telephone':'123456',
     }
+    $http.get(""+$routeParams.id).then(function(data){
+
+    });
   })
-  .controller('GoodListCtrl',function($scope){
+  .controller('GoodListCtrl',function($scope,$routeParams){
     $scope.goods=[{
       'id':'0',
       'name':'薯片',
@@ -180,6 +183,9 @@ angular.module('frontedApp')
         'quantity':'0',
         'total':'0'
       }];
+    $http.get(""+$routeParams.id).then(function(data){
+
+    });
     $scope.minus = function(index) {
       $scope.goods[index].quantity--;
       if($scope.goods[index].quantity<0){
