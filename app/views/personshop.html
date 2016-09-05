@@ -1,13 +1,13 @@
 <div class="row" style="background-color:	#D3D3D3;padding: 50px 0 50px 0">
   <div class="col-xs-4">
-      <div ng-controller="ShopMaster"  align="center">
+      <div  align="center">
         <img ng-src="{{shop.imgsrc}}" alt="头像" class="img-responsive img-circle">
         <p class="lead">{{shop.title}}</p>
         <p>{{shop.master}}</p>
         <p>{{shop.telephone}}</p>
       </div>
   </div>
-  <div class="col-xs-8" ng-controller="GoodListCtrl">
+  <div class="col-xs-8">
     <div class="personshop-shadow" ng-repeat="good in goods" align="center" >
       <img ng-src="{{good.imgsrc}}" alt="" width="100%" >
       <div class="personshop_hover">

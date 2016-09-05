@@ -6,12 +6,13 @@
     <button class="col-xs-2 btn btn-primary">搜索</button>
   </div>
 </form>
-<div style="width: 100%;margin-top: 10px;word-wrap: break-word;word-break: normal; " ng-controller="ShopListCtrl">
+<div style="width: 100%;margin-top: 10px;word-wrap: break-word;word-break: normal;" ng-controller="ShopListCtrl">
   <div class="showSection" ng-repeat="shop in shops|filter:name ">
     <div align="center" style="margin-top: -30px" class="hover"><img ng-src="{{shop.imgsrc}}" class="img-responsive img-circle" alt="头像" width="40%"></div>
     <p align="center" class="lead" style="margin-top: 10px">{{shop.title}}</p>
     <p align="center">{{shop.master}}</p>
     <p align="center">{{shop.telephone}}</p>
+    <p align="center"><button class="btn btn-success btn-sm"><a href="/#/main/:{{shop.id}}" class="noneunderline">进去看看</a></button></p></p>
   </div>
 </div>
 

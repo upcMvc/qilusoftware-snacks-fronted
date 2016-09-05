@@ -233,7 +233,14 @@ body {
   z-index: 9999;
   /*position: inherit;*/
 }
-
+.noneunderline {
+  text-decoration: none;
+  color: white;
+}
+.noneunderline:hover {
+  text-decoration: none;
+  color: white;
+}
 
 
 

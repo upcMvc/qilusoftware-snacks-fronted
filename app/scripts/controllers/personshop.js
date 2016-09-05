@@ -136,14 +136,7 @@ $.fn.fly = function (options) {
   });
 };
 angular.module('frontedApp')
-  .controller('PersonshopCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  })
-  .controller('ShopMaster',function($scope,$http,$routeParams){
+  .controller('PersonshopCtrl', function ($scope,$http,$routeParams) {
     $scope.shop={
       'id':'1',
       'title':'麦琪的礼物',
@@ -154,8 +147,9 @@ angular.module('frontedApp')
     $http.get(""+$routeParams.id).then(function(data){
 
     });
-  })
-  .controller('GoodListCtrl',function($scope,$routeParams){
+
+
+
     $scope.goods=[{
       'id':'0',
       'name':'薯片',
@@ -165,15 +159,15 @@ angular.module('frontedApp')
       'quantity':'0',
       'total':'0'
     },
-    {
-       'id':'1',
-       'name':'辣条',
-       'price':'2',
-       'describe':'好吃',
-       'imgsrc':'images/touxiang1.jpg',
-       'quantity':'0',
-       'total':'0'
-    },
+      {
+        'id':'1',
+        'name':'辣条',
+        'price':'2',
+        'describe':'好吃',
+        'imgsrc':'images/touxiang1.jpg',
+        'quantity':'0',
+        'total':'0'
+      },
       {
         'id':'2',
         'name':'辣条',
@@ -201,7 +195,7 @@ angular.module('frontedApp')
     //发数据
     $scope.put=function ($http,event,index) {
       var offset = $('#end').offset(),
-          flyer = $('<img class="u-flyer" src="{{$scope.goods[index].imgsrc}}"/>');
+        flyer = $('<img class="u-flyer" src="{{$scope.goods[index].imgsrc}}"/>');
       flyer.fly({
         start: {
           left: event.clientX,//当前鼠标的坐标
