@@ -52,38 +52,26 @@ angular.module('frontedApp')
     $http.get(""+$routeParams.id).then(function(data){
 
     });
-    $scope.minus = function(index) {
-      $scope.goods[index].quantity--;
-      if($scope.goods[index].quantity<0){
-        alert('所选不能小于0件');
-        $scope.goods[index].quantity=1;
-      }
-      $scope.goods[index].total=$scope.goods[index].price*$scope.goods[index].quantity;
-    };
-    $scope.plus = function(index) {
-      $scope.goods[index].quantity++;
-      $scope.goods[index].total=$scope.goods[index].price*$scope.goods[index].quantity;
-    };
     //发数据
-    $scope.put=function ($http,event,index) {
-      var offset = $('#end').offset(),
-        flyer = $('<img class="u-flyer" src="{{$scope.goods[index].imgsrc}}"/>');
-      flyer.fly({
-        start: {
-          left: event.clientX,//当前鼠标的坐标
-          top: event.clientY
-        },
-        end: {
-          left: offset.left+8,
-          top: 300,
-          width: 20,
-          height: 20
-        }
-      });
+    $scope.delete=function ($http,event,index) {
       $http.post("", $scope.goods[index]).success(function (data) {
         console.log(data);
       }).error(function () {
         console.log("error");
+      });
+    };
+    $scope.add = function(){
+      $.confirm({
+        title: 'Confirm!',
+        content: 'Simple confirm!',
+        columnClass: 'col-md-6 col-md-offset-3',
+        container:'body',
+        confirm: function(){
+          $.alert('Confirmed!');
+        },
+        cancel: function(){
+          $.alert('Canceled!')
+        }
       });
     }
   });

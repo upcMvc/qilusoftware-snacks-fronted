@@ -149,6 +149,15 @@ body {
   word-break: normal;
   border-radius: 5px;
 }
+.personshop-shadow-add {
+  width: 35%;
+  height: 220px;
+  margin-bottom: 50px;
+  margin-left: 5%;
+  margin-right: 10%;
+  background-color: transparent;
+  float: left;
+}
 
 .personshop-shadow:hover .personshop_hover {
   position: relative;
