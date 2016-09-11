@@ -7,6 +7,7 @@
  * # WantopenCtrl
  * Controller of the frontedApp
  */
+
 angular.module('frontedApp')
   .controller('WantopenCtrl', function () {
     this.awesomeThings = [

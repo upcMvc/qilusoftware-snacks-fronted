@@ -15,12 +15,10 @@
       <td>{{$index+1}}</td>
       <td>{{item.name}}</td>
       <td>
-        <button type="button" class="btn" ng-click="reduce($index)">-</button>
-        <input type="text" name="" value="" placeholder="" ng-model="item.quantity" disabled>
-        <button type="button" class="btn" ng-click="add($index)">+</button>
+        <span>{{item.num}}</span>
       </td>
       <td>{{item.price}}</td>
-      <td>{{item.quantity*item.price}}</td>
+      <td>{{item.num*item.price}}</td>
       <td>
         <button type="button" class="btn btn-danger" ng-click="remove($index)">移除</button>
       </td>
@@ -29,7 +27,7 @@
       <td>总价格：{{totalPrice()}} 元</td>
       <td colspan="4">总购买数：{{totalQuantity()}}</td>
       <td>
-        <button type="button" class="btn btn-danger" ng-click="removeall()">清空购物车</button>
+        <button type="button" class="btn btn-danger" ng-click="removeall()">提交全部订单</button>
       </td>
     </tr>
     </tbody>

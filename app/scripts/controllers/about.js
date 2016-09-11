@@ -15,7 +15,7 @@ angular.module('frontedApp')
       'Karma'
     ];
   })
-.controller('firstController', function($scope,$http,$routeParams) {
+.controller('firstController', function($scope,$http) {
     //$http.get(""+$routeParams.id).then(function(data){
     //  $scope.Product = data;
     //});
@@ -49,7 +49,7 @@ angular.module('frontedApp')
     $scope.totalPrice = function() {
       var total = 0;
       angular.forEach($scope.Product, function(item) {
-        total += item.quantity * item.price;
+        total += item.num * item.price;
       });
       return total;
     };
@@ -57,47 +57,40 @@ angular.module('frontedApp')
     $scope.totalQuantity = function() {
       var total = 0;
       angular.forEach($scope.Product, function(item) {
-        total += parseInt(item.quantity);
+        total += parseInt(item.num);
       });
       return total;
     };
 
-    $scope.remove = function(index) {
-      $scope.Product.splice(index, 1);
-    };
+  $scope.remove = function(index) {
+    $scope.Product.splice(index, 1);
 
+    $http.get("http://mvc.y1code.cn:8080/goodlist/delete?id="+$scope.Product[index].id).then(function(){
+    });
+  };
     $scope.removeall = function() {
       var index;
       for (index = $scope.Product.length - 1; index >= 0; index--) {
-        $scope.remove(index);
+        $scope.Product.splice(index, 1);
       }
+
+      var address = prompt("小主，请输入你在石大的详细地址");
+      console.log(address);
+
+      $http.get("http://mvc.y1code.cn:8080/goodlist/putorder?address="+address).then(function(){
+
+      });
     };
 
-    $scope.reduce = function(index) {
-      if ($scope.Product[index].quantity != 1) {
-        $scope.Product[index].quantity--;
-      } else {
-        var ans = confirm("是否移除该产品？");
-        if (ans) {
-          $scope.remove(index);
-        } else {
-          $scope.Product[index].quantity = 1;
-        }
-      }
-    };
-
-    $scope.add = function(index) {
-      $scope.Product[index].quantity++;
-    };
 
     $scope.$watch('Product', function(newValue, oldValue) {
       angular.forEach(newValue, function(item, key) {
-        if (item.quantity < 1) {
+        if (item.num < 1) {
           var ans = confirm("是否移除该产品？");
           if (ans) {
             $scope.remove(key);
           } else {
-            item.quantity = oldValue[key].quantity;
+            item.num = oldValue[key].num;
           }
           return;
         }
