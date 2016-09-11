@@ -66,8 +66,6 @@ angular.module('frontedApp')
 
     });
 
-
-
     $scope.goods=[{
       'id':'0',
       'name':'薯片',

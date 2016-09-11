@@ -16,15 +16,9 @@ angular.module('frontedApp')
     ];
   })
   .controller('ShopListCtrl',function($scope,$http){
-      //$http.get("").success(function(data){
-      //  $scope.shops=data;
-      //});
-    $scope.shops=[{
-      title :123,
-      master :123,
-      phone :123456,
-      id :2
-    }];
+      $http.get("http://mvc.y1code.cn:8080/shop/show").success(function(data){
+        $scope.shops=data;
+      });
 
   });
 
