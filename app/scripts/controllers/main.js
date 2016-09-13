@@ -16,7 +16,7 @@ angular.module('frontedApp')
     ];
   })
   .controller('ShopListCtrl',function($scope,$http){
-      $http.get("http://mvc.y1code.cn:8080/shop/show").success(function(data){
+      $http.get(config.serveraddress+"/shop/show").success(function(data){
         $scope.shops=data;
       });
 

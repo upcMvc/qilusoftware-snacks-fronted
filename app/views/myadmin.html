@@ -5,11 +5,14 @@
       <p class="lead">{{shop.title}}</p>
       <p>{{shop.master}}</p>
       <p>{{shop.telephone}}</p>
+
+
+
     </div>
   </div>
   <div class="col-xs-8">
     <div class="personshop-shadow" ng-repeat="good in goods" align="center" >
-      <img ng-src="{{good.imgsrc}}" alt="" width="100%" >
+      <img ng-src="{{good.imgurl}}" alt="" width="100%" >
       <div class="personshop_hover">
         <h2>{{good.name}}</h2>
         <p>单价：{{good.price}}元</p><br>
@@ -30,20 +33,20 @@
       <h3 class="panel-title">请选择提交的产品</h3>
     </div>
     <div class="panel-body">
-      <form role="form">
+      <form role="form" name="form" method="POST" enctype="multipart/form-data" action="http://localhost:8080/phone">
         <div class="form-group">
           <label>商品名：</label>
-          <input type="text" class="form-control" ng-model="goodname">
+          <input type="text" class="form-control" ng-model="goodname" name="name">
         </div>
         <div class="form-group">
           <label>单价：</label>
-          <input type="text" class="form-control" placeholder="以元为单位" ng-model="unitprice">
+          <input type="text" class="form-control" placeholder="以元为单位" ng-model="unitprice" name="price">
         </div>
         <div class="form-group">
           <label class="control-label" >请上传一张图片:</label>
-          <input id="input-id" type="file" class="file" data-preview-file-type="text" >
+          <input id="input-id" type="file" class="file" data-preview-file-type="text" name="file">
         </div>
-        <p align="center"><button class="btn btn-success btn-lg" data-dismiss="JDialog" id="test">提交</button></p>
+        <p align="center"><button class="btn btn-success btn-lg" data-dismiss="JDialog" id="test" type="submit">提交</button></p>
       </form>
     </div>
   </div>

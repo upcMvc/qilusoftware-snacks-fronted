@@ -54,54 +54,33 @@ window.onload = function(){
 
 };
 angular.module('frontedApp')
-  .controller('MyadminCtrl', function ($scope,$http,$routeParams) {
-    $scope.shop={
-      'id':'1',
-      'title':'麦琪的礼物',
-      'master':'master1',
-      'imgsrc':'images/touxiang1.jpg',
-      'telephone':'123456'
-    };
-    $http.get(""+$routeParams.id).then(function(data){
+  .controller('MyadminCtrl', function ($scope,$http) {
+    $http.get("http://localhost:8080/shop/ownshop").then(function (data) {
+      console.log(data);
+      if(data.data.code==-1){
+      //  location.href(http://);      //登陆页面
+      }
+      else{
+        var sellerid =data.data.id;
+        console.log(sellerid);
+        $http.get(config.serveraddress+"/shop/showshop?id="+sellerid).then(function(data){
+          $scope.shop= data.data;
+        });
 
+        $http.get(config.serveraddress+"/goods/show?shopid="+sellerid).then(function(data){
+          $scope.goods= data.data;
+          console.log(data);
+
+        });
+      }
     });
 
-    $scope.goods=[{
-      'id':'0',
-      'name':'薯片',
-      'price':'1',
-      'describe':'好吃',
-      'imgsrc':'images/touxiang1.jpg',
-      'quantity':'0',
-      'total':'0'
-    },
-      {
-        'id':'1',
-        'name':'辣条',
-        'price':'2',
-        'describe':'好吃',
-        'imgsrc':'images/touxiang1.jpg',
-        'quantity':'0',
-        'total':'0'
-      },
-      {
-        'id':'2',
-        'name':'辣条',
-        'price':'3',
-        'describe':'好吃',
-        'imgsrc':'images/touxiang1.jpg',
-        'quantity':'0',
-        'total':'0'
-      }];
-    $http.get(""+$routeParams.id).then(function(data){
-
-    });
     //发数据
-    $scope.delete=function ($http,event,index) {
-      $http.post("", $scope.goods[index]).success(function (data) {
-        console.log(data);
-      }).error(function () {
-        console.log("error");
+    $scope.delete=function (index) {
+      $http.get(config.serveraddress+"/goods/delete?id="+$scope.goods[index].id).success(function (data) {
+        if(data.code==1){
+          $scope.goods.splice(index,1);
+        }
       });
     };
   });

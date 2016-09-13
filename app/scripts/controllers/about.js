@@ -15,41 +15,16 @@ angular.module('frontedApp')
       'Karma'
     ];
   })
-.controller('firstController', function($scope,$http,$routeParams) {
-    //$http.get(""+$routeParams.id).then(function(data){
-    //  $scope.Product = data;
-    //});
-    $scope.Product = [{
-      id: 1,
-      name: "零食1",
-      quantity: 1,
-      price: 1,
-      number:1
-    }, {
-      id: 2,
-      name: "零食2",
-      quantity: 1,
-      price: 8,
-      number:1
+.controller('firstController', function($scope,$http) {
+    $http.get("http://localhost:8080/goodlist/show").then(function(data){
+      $scope.Product = data.data;
+    });
 
-    }, {
-      id: 3,
-      name: "零食3",
-      quantity: 3,
-      price: 4,
-      number:1
-    }, {
-      id: 4,
-      name: "零食4",
-      quantity: 1,
-      price: 3,
-      number:1
-    }];
 
     $scope.totalPrice = function() {
       var total = 0;
       angular.forEach($scope.Product, function(item) {
-        total += item.quantity * item.price;
+        total += item.num * item.price;
       });
       return total;
     };
@@ -57,47 +32,45 @@ angular.module('frontedApp')
     $scope.totalQuantity = function() {
       var total = 0;
       angular.forEach($scope.Product, function(item) {
-        total += parseInt(item.quantity);
+        total += parseInt(item.num);
       });
       return total;
     };
 
     $scope.remove = function(index) {
       $scope.Product.splice(index, 1);
+
+      $http.get(config.serveraddress+"/goodlist/delete?id="+$scope.Product[index].id);
     };
 
     $scope.removeall = function() {
       var index;
       for (index = $scope.Product.length - 1; index >= 0; index--) {
-        $scope.remove(index);
+        $scope.Product.splice(index, 1);
       }
-    };
-
-    $scope.reduce = function(index) {
-      if ($scope.Product[index].quantity != 1) {
-        $scope.Product[index].quantity--;
-      } else {
-        var ans = confirm("是否移除该产品？");
-        if (ans) {
-          $scope.remove(index);
-        } else {
-          $scope.Product[index].quantity = 1;
+      var address = prompt("小主，请输入你的地址");
+      $http.get(config.serveraddress+"/goodlist/putorder?address="+address).then(function (data) {
+        console.log(data);
+        if(data.data.code==1){
+          alert("提交成功");
         }
-      }
+        else {
+          alert("提交失败");
+        }
+      });
     };
 
-    $scope.add = function(index) {
-      $scope.Product[index].quantity++;
-    };
+
+
 
     $scope.$watch('Product', function(newValue, oldValue) {
       angular.forEach(newValue, function(item, key) {
-        if (item.quantity < 1) {
+        if (item.num < 1) {
           var ans = confirm("是否移除该产品？");
           if (ans) {
             $scope.remove(key);
           } else {
-            item.quantity = oldValue[key].quantity;
+            item.num = oldValue[key].num;
           }
           return;
         }
