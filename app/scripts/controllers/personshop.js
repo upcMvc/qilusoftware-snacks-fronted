@@ -138,12 +138,15 @@ $.fn.fly = function (options) {
 angular.module('frontedApp')
   .controller('PersonshopCtrl', function ($scope,$http,$routeParams) {
 
+
     $http.get(config.serveraddress+"/shop/showshop?id="+$routeParams.id).then(function(data){
       $scope.shop= data.data;
     });
 
+
     $http.get(config.serveraddress+"/goods/show?shopid="+$routeParams.id).then(function(data){
       $scope.goods= data.data;
+
 
     });
     $scope.minus = function(index) {
@@ -175,7 +178,9 @@ angular.module('frontedApp')
         }
       });
 
+
       $http.get(config.serveraddress+"/goodlist/create?goodsid="+$scope.goods[index].id+"&num="+$scope.goods[index].quantity+"&name="+$scope.goods[index].name+"&price="+$scope.goods[index].price).then(function (data) {
+
       });
     }
   });

@@ -55,6 +55,7 @@ window.onload = function(){
 };
 angular.module('frontedApp')
   .controller('MyadminCtrl', function ($scope,$http) {
+
     $http.get("http://localhost:8080/shop/ownshop").then(function (data) {
       console.log(data);
       if(data.data.code==-1){
@@ -71,13 +72,16 @@ angular.module('frontedApp')
           $scope.goods= data.data;
           console.log(data);
 
+
         });
       }
     });
 
     //发数据
     $scope.delete=function (index) {
+
       $http.get(config.serveraddress+"/goods/delete?id="+$scope.goods[index].id).success(function (data) {
+
         if(data.code==1){
           $scope.goods.splice(index,1);
         }

@@ -16,6 +16,7 @@ angular.module('frontedApp')
     ];
   })
 .controller('firstController', function($scope,$http) {
+
     $http.get("http://localhost:8080/goodlist/show").then(function(data){
       $scope.Product = data.data;
     });
@@ -37,17 +38,16 @@ angular.module('frontedApp')
       return total;
     };
 
+
     $scope.remove = function(index) {
       $scope.Product.splice(index, 1);
 
       $http.get(config.serveraddress+"/goodlist/delete?id="+$scope.Product[index].id);
     };
 
-    $scope.removeall = function() {
-      var index;
-      for (index = $scope.Product.length - 1; index >= 0; index--) {
-        $scope.Product.splice(index, 1);
-      }
+  $scope.remove = function(index) {
+    $scope.Product.splice(index, 1);
+
       var address = prompt("小主，请输入你的地址");
       $http.get(config.serveraddress+"/goodlist/putorder?address="+address).then(function (data) {
         console.log(data);
@@ -59,8 +59,6 @@ angular.module('frontedApp')
         }
       });
     };
-
-
 
 
     $scope.$watch('Product', function(newValue, oldValue) {
