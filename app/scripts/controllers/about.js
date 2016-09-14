@@ -22,6 +22,7 @@ angular.module('frontedApp')
     });
 
 
+
     $scope.totalPrice = function() {
       var total = 0;
       angular.forEach($scope.Product, function(item) {
@@ -48,15 +49,12 @@ angular.module('frontedApp')
 
   $scope.removeall = function() {
 
-
     var address = prompt("小主，请输入您的详细地址");
-
     if(address){
       $http.get(config.serveraddress+"/goodlist/putorder?address="+address).then(function () {
       });
-      var index;
-      for(index = $scope.Product.length-1;index >= 0;index --){
-        $scope.Product.splice(index, 1);
+      for(var i = $scope.Product.length-1;i >= 0;i --){
+        $scope.Product.splice(i, 1);
       }
     }else {
       alert("您输入的地址为空");

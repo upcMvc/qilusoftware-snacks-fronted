@@ -18,11 +18,6 @@ angular.module('frontedApp')
       $("#input-id").fileinput();
       $("#input-id").fileinput({'showUpload':false,'previewFileType':'any'});
     });
-     if(config.flag == 0){
-       $location.path('/myadmin');
-       config.flag  = 1;
-     }
-    config.flag = 0;
     $http.get(config.serveraddress+"/shop/ownshop").then(function (data) {
       if(data.data.code==-1){
       //  location.href(http://);      //登陆页面
