@@ -22,8 +22,8 @@
         </form>
       </div>
     </div>
-    <div class="personshop-shadow-add"  align="center" >
-      <img src="images/add.png" alt="" width="50%" style=" cursor: pointer" data-toggle="JDialog" data-target="dialog-4">
+    <div class="personshop-shadow-add"  align="center" data-toggle="JDialog" data-target="dialog-4">
+      <img src="images/add.png" alt="" width="50%" style=" cursor: pointer" >
     </div>
   </div>
 </div>
@@ -48,12 +48,14 @@
           <label class="control-label" >请上传一张图片:</label>
           <input id="input-id" type="file" class="file" data-preview-file-type="text" name="file">
         </div>
-        <p align="center"><button class="btn btn-success btn-lg" data-dismiss="JDialog" id="test" type="submit">提交</button></p>
+        <p align="center">
+          <button class="btn btn-success btn-lg"  id="test" type="submit">提交</button>
+          <button class="btn btn-danger btn-lg" data-dismiss="JDialog" type="button">取消</button>
+        </p>
       </form>
     </div>
   </div>
 </div>
-
 
 
 

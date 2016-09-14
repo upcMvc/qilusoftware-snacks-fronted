@@ -40,24 +40,29 @@ angular.module('frontedApp')
 
 
     $scope.remove = function(index) {
-      $scope.Product.splice(index, 1);
+      $http.get(config.serveraddress+"/goodlist/delete?id="+$scope.Product[index].id).then(function () {
 
-      $http.get(config.serveraddress+"/goodlist/delete?id="+$scope.Product[index].id);
+      });
+      $scope.Product.splice(index, 1);
     };
 
-  $scope.remove = function(index) {
-    $scope.Product.splice(index, 1);
+  $scope.removeall = function() {
 
-      var address = prompt("小主，请输入你的地址");
-      $http.get(config.serveraddress+"/goodlist/putorder?address="+address).then(function (data) {
-        console.log(data);
-        if(data.data.code==1){
-          alert("提交成功");
-        }
-        else {
-          alert("提交失败");
-        }
+
+    var address = prompt("小主，请输入您的详细地址");
+
+    if(address){
+      $http.get(config.serveraddress+"/goodlist/putorder?address="+address).then(function () {
       });
+      var index;
+      for(index = $scope.Product.length-1;index >= 0;index --){
+        $scope.Product.splice(index, 1);
+      }
+    }else {
+      alert("您输入的地址为空");
+    }
+
+
     };
 
 

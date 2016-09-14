@@ -50,27 +50,30 @@ window.onload = function(){
     allowOverlay: false
   });
   $("#input-id").fileinput();
-  $("#input-id").fileinput({'showUpload':false, 'previewFileType':'any'});
+  $("#input-id").fileinput({'showUpload':false,'previewFileType':'any'});
+
 
 };
 angular.module('frontedApp')
-  .controller('MyadminCtrl', function ($scope,$http) {
-
+  .controller('MyadminCtrl', function ($scope,$http,$route) {
+    
     $http.get("http://localhost:8080/shop/ownshop").then(function (data) {
-      console.log(data);
       if(data.data.code==-1){
       //  location.href(http://);      //登陆页面
       }
       else{
+        console.log(data);
         var sellerid =data.data.id;
         console.log(sellerid);
         $http.get(config.serveraddress+"/shop/showshop?id="+sellerid).then(function(data){
           $scope.shop= data.data;
+
         });
 
         $http.get(config.serveraddress+"/goods/show?shopid="+sellerid).then(function(data){
           $scope.goods= data.data;
           console.log(data);
+          console.log($scope.goods);
 
 
         });
@@ -81,7 +84,7 @@ angular.module('frontedApp')
     $scope.delete=function (index) {
 
       $http.get(config.serveraddress+"/goods/delete?id="+$scope.goods[index].id).success(function (data) {
-
+        console.log(data);
         if(data.code==1){
           $scope.goods.splice(index,1);
         }

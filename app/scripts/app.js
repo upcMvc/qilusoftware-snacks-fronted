@@ -54,7 +54,7 @@ angular
       .when('/myadmin', {
         templateUrl: 'views/myadmin.html',
         controller: 'MyadminCtrl',
-        controllerAs: 'myadmin'
+        controllerAs: 'myadmin',
       })
       .otherwise({
         redirectTo: '/'
