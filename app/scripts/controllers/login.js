@@ -8,7 +8,7 @@
  * Controller of the frontedApp
  */
 angular.module('frontedApp')
-  .controller('LoginCtrl', function ($scope,$http) {
+  .controller('LoginCtrl', function ($scope,$http,$location) {
     $scope.submit = function (){
       $http.get(config.serveraddress+"/user/login?username="+$scope.username+"&password="+$scope.password).success(function (data) {
         console.log(data);
@@ -16,7 +16,7 @@ angular.module('frontedApp')
           alert("账号或密码输入错误");
         }
         else {
-          window.location = config.frontedaddress+"/#/main";
+          $location.path('/main');
         }
       });
     }

@@ -8,12 +8,12 @@
  * Controller of the frontedApp
  */
 angular.module('frontedApp')
-  .controller('RegisterCtrl', function ($scope,$http) {
+  .controller('RegisterCtrl', function ($scope,$http,$location) {
     $scope.submit = function () {
       $http.get(config.serveraddress+"/user/create?name="+$scope.id+"&mail=" + $scope.email+ "&password="+$scope.password + "&phone=" + $scope.phone).then(function (data) {
         console.log(data);
         if(data.data.result=="注册成功"){
-          window.location=config.frontedaddress+"/#/main";
+          $location.path('/main');
           console.log("注册成功");
         }
         else {

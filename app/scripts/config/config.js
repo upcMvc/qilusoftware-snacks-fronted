@@ -4,5 +4,6 @@
 var config = {
   "serveraddress" : "http://localhost:8080",
   "frontedaddress":"http://localhost:9000",
+  "flag" : 0,
 
 };

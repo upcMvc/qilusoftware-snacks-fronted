@@ -17,7 +17,7 @@ angular.module('frontedApp')
   })
 .controller('firstController', function($scope,$http) {
 
-    $http.get("http://localhost:8080/goodlist/show").then(function(data){
+    $http.get(config.serveraddress+"/goodlist/show").then(function(data){
       $scope.Product = data.data;
     });
 

@@ -16,19 +16,19 @@ angular.module('frontedApp')
       'Karma'
     ];
   })
-  .controller('ValueCtrl',function($scope,$http){
+  .controller('ValueCtrl',function($scope,$http,$location){
     $http.get(config.serveraddress+"/shop/ismaster").then(function (data) {
       if(data.data.code ==0){
         alert("您还未登录");
       }else if(data.data.code==-1){
         alert("您已经有店，不能重复开店");
-        window.location = config.frontedaddress+"/#/myadmin";
+        $location.path('/myadmin');
       }
     });
     $scope.signin= function () {
       $http.get(config.serveraddress + "/shop/create?title="+$scope.title+"&&phone="+$scope.phone+"&&email="+$scope.email+"&&qq="+$scope.qq+"&&detail="+$scope.detail).then(function(data){
 
-        window.location = config.frontedaddress+"/#/myadmin";
+        $location.path('/myadmin');
       });
     };
 });
