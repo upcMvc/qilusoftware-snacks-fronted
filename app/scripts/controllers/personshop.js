@@ -164,7 +164,7 @@ angular.module('frontedApp')
     //发数据
     $scope.put=function (index) {
       var offset = $('#end').offset(),
-        flyer = $('<img class="u-flyer" src="{{$scope.goods[index].imgsrc}}"/>');
+        flyer = $('<img class="u-flyer" src="{{$scope.goods[index].imgurl}}"/>');
       flyer.fly({
         start: {
           left: event.clientX,//当前鼠标的坐标
