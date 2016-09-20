@@ -56,7 +56,23 @@ angular
         controller: 'MyadminCtrl',
         controllerAs: 'myadmin'
       })
+      .when('/test', {
+        templateUrl: 'views/test.html',
+        controller: 'TestCtrl',
+        controllerAs: 'test'
+      })
+      .when('/test', {
+        templateUrl: 'views/test.html',
+        controller: 'TestCtrl',
+        controllerAs: 'test'
+      })
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .controller("globalCtrl",function ($scope) {
+    $scope.online = false;
+    $scope.$on('submit',function (e , newValue) {
+      $scope.online = newValue;
+    })
   });

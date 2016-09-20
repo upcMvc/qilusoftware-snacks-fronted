@@ -10,6 +10,7 @@
 angular.module('frontedApp')
   .controller('LoginCtrl', function ($scope,$http,$location) {
     $scope.submit = function (){
+      $scope.online =!$scope.online;
       $http.get(config.serveraddress+"/user/login?username="+$scope.username+"&password="+$scope.password).success(function (data) {
         console.log(data);
         if(data.code == -1){
@@ -17,6 +18,7 @@ angular.module('frontedApp')
         }
         else {
           $location.path('/main');
+          $scope.$emit('submit', $scope.online);
         }
       });
     }

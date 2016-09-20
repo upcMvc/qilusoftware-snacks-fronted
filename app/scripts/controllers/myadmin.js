@@ -8,7 +8,7 @@
  * Controller of the frontedApp
  */
 angular.module('frontedApp')
-  .controller('MyadminCtrl', function ($scope,$http,$route,$location) {
+  .controller('MyadminCtrl', function ($scope,$http) {
     $scope.$watch('$viewContentLoaded',function () {
       $("#dialog-4").jDialog({
         skinClassName: 'demo',
