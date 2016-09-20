@@ -17,8 +17,8 @@ angular.module('frontedApp')
           alert("账号或密码输入错误");
         }
         else {
-          $location.path('/main');
           $scope.$emit('submit', $scope.online);
+          $location.path('/main');
         }
       });
     }
