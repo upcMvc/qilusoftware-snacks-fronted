@@ -70,9 +70,17 @@ angular
         redirectTo: '/'
       });
   })
-  .controller("globalCtrl",function ($scope) {
+  .controller("globalCtrl",function ($scope,$http,$location) {
     $scope.online = false;
     $scope.$on('submit',function (e , newValue) {
       $scope.online = newValue;
-    })
+    });
+    $scope.signout = function () {
+      $http.get(config.serveraddress+"/shop/logout").then(function (data) {
+        if(data.data.code == 1){
+          alert("注销成功");
+          $location.path("/");
+        }
+      });
+    }
   });
